@@ -1,0 +1,16 @@
+# Setup: Create a file with integers
+with open("numbers.txt", "w") as f:
+    f.write("50\n120\n30\n200\n85\n110")
+
+with open("numbers.txt", "r") as f:
+    nums = [int(line.strip()) for line in f.readlines()]
+
+# a. Max number
+print(f"Maximum Number: {max(nums)}")
+
+# b. Average
+print(f"Average: {sum(nums)/len(nums):.2f}")
+
+# c. Count > 100
+greater_than_100 = len([n for n in nums if n > 100])
+print(f"Numbers greater than 100: {greater_than_100}")

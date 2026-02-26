@@ -1,0 +1,51 @@
+class Student:
+    def __init__(self, name, sap_id, marks):
+        self.name = name
+        self.sap_id = sap_id
+        self.marks = marks  # List: [phy, chem, maths]
+
+    def display(self):
+        print(f"Name: {self.name} | SAP ID: {self.sap_id} | Marks: {self.marks}")
+
+    def find_percentage(self):
+        total = sum(self.marks)
+        percentage = (total / 300) * 100
+        return percentage
+
+    def display_result(self):
+        # Check if each subject is > 40 (assuming max marks 100 per sub)
+        status = "Pass"
+        for m in self.marks:
+            if m <= 40:
+                status = "Fail"
+                break
+        print(f"Result: {status}")
+
+def find_class_average(student_list):
+    total_avg = 0
+    for s in student_list:
+        total_avg += s.find_percentage()
+    return total_avg / len(student_list)
+
+# Main Execution
+n = int(input("Enter number of students: "))
+all_students = []
+
+for i in range(n):
+    print(f"\nEnter details for Student {i+1}:")
+    name = input("Name: ")
+    sap = input("SAP ID: ")
+    p = int(input("Physics marks: "))
+    c = int(input("Chemistry marks: "))
+    m = int(input("Maths marks: "))
+    
+    obj = Student(name, sap, [p, c, m])
+    all_students.append(obj)
+
+print("\n--- Student Details ---")
+for s in all_students:
+    s.display()
+    print(f"Percentage: {s.find_percentage():.2f}%")
+    s.display_result()
+
+print(f"\nOverall Class Average: {find_class_average(all_students):.2f}%")

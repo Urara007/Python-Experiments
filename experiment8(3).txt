@@ -1,0 +1,27 @@
+# Setup: Create city.txt
+data = "Dehradun 5.78 308.20\nDelhi 190 1484\nMumbai 184 603\nShimla 1.7 35.34\nBangalore 123 709"
+with open("city.txt", "w") as f:
+    f.write(data)
+
+# Processing
+total_area = 0.0
+print("--- All City Details ---")
+with open("city.txt", "r") as f:
+    for line in f:
+        parts = line.split()
+        name = parts[0]
+        pop = float(parts[1])
+        area = float(parts[2])
+        
+        # a. Display all
+        print(f"City: {name}, Population: {pop}L, Area: {area}sqKM")
+        
+        # b. Population > 10 Lakhs
+        if pop > 10:
+            # Note: Displaying just the names as per requirement
+            print(f"-> HIGH POPULATION CITY: {name}")
+            
+        # c. Sum of areas
+        total_area += area
+
+print(f"\nSum of all areas: {total_area:.2f} sq KM")

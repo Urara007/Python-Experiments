@@ -1,0 +1,39 @@
+# 1. Single Inheritance
+class Parent:
+    def func1(self):
+        print("This is the parent class.")
+
+class Child(Parent):
+    def func2(self):
+        print("This is the child class.")
+
+# 2. Multilevel Inheritance
+class Grandparent:
+    def func_g(self):
+        print("Grandparent function")
+
+class Intermediate(Grandparent):
+    def func_i(self):
+        print("Intermediate function")
+
+class Final(Intermediate):
+    def func_f(self):
+        print("Final child function")
+
+# 3. Multiple Inheritance
+class Father:
+    def f_trait(self):
+        print("Trait from Father")
+
+class Mother:
+    def m_trait(self):
+        print("Trait from Mother")
+
+class Son(Father, Mother):
+    def own_trait(self):
+        print("Son's own trait")
+
+print("Testing Multiple Inheritance:")
+s = Son()
+s.f_trait()
+s.m_trait()

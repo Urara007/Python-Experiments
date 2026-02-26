@@ -1,0 +1,13 @@
+import numpy as np
+
+# Create 3x3 array
+arr_3x3 = np.array([[12, 45, 7], [32, 11, 56], [9, 88, 21]])
+print("3x3 Array:\n", arr_3x3)
+
+# Row and Column sums
+print("Sum of each row:", np.sum(arr_3x3, axis=1))
+print("Sum of each column:", np.sum(arr_3x3, axis=0))
+
+# Finding 2nd maximum
+unique_sorted = np.sort(np.unique(arr_3x3))
+print("2nd Maximum element:", unique_sorted[-2])
