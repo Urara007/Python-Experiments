@@ -5,4 +5,5 @@ skills = ["Python", "AI", "ML"]
 print(age)
 print(gpa)
 print(is_student)
+
 print(skills)
